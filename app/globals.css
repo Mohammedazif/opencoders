@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@layer base {
+  :root {
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    --topnav-height: 76px;
+
+    /* Site palette (space-separated RGB so Tailwind can add alpha) */
+    --bg: 255 255 255;
+    --bg-offset: 243 243 243;
+    --bg-panel: 250 250 250;
+    --fg: 23 23 23;
+    --fg-secondary: 115 115 115;
+    --fg-tertiary: 163 163 163;
+    --line: 229 229 229;
+    --line-subtle: 238 238 238;
+
+    /* Letter colours, tuned per theme for contrast */
+    --c: 0 150 190;
+    --m: 124 92 230;
+    --d: 16 150 100;
+
+    /* shadcn tokens, kept in step with the palette for components/ui */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 95%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 9%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --bg: 15 15 15;
+    --bg-offset: 32 32 32;
+    --bg-panel: 22 22 22;
+    --fg: 245 245 245;
+    --fg-secondary: 150 150 150;
+    --fg-tertiary: 100 100 100;
+    --line: 44 44 44;
+    --line-subtle: 34 34 34;
+
+    --c: 0 220 255;
+    --m: 167 139 250;
+    --d: 52 211 153;
+
+    --background: 0 0% 6%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 0 0% 59%;
+    --accent: 0 0% 13%;
+    --accent-foreground: 0 0% 96%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 17%;
+    --input: 0 0% 17%;
+    --ring: 0 0% 83%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  ::selection {
+    background-color: rgb(var(--fg));
+    color: rgb(var(--bg));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
